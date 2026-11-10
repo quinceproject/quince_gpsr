@@ -1,0 +1,123 @@
+{# Rejestr firm GPSR: lista. Jedna firma edytuje się na własnym widoku. #}
+{% extends '@Modules/quince_gpsr/views/templates/admin/layout.html.twig' %}
+{% import '@Modules/quince_gpsr/views/templates/admin/_macros/icons.html.twig' as icons %}
+
+{% trans_default_domain 'Modules.Quincegpsr.Admin' %}
+
+{% block quince_intro %}
+    <div class="qc-alert qc-alert-info">
+        {{ icons.icon('info', 18, 'qc-alert-icon') }}
+        <div>
+            {{ 'Companies shown to customers under the General Product Safety Regulation: manufacturers, importers, authorised representatives. A product takes its company from its brand, unless it names its own.'|trans }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block quince_body %}
+<div class="qc-card">
+    <div class="qc-card-head">
+        <div>
+            <div class="qc-card-title">{{ 'Company register'|trans }}</div>
+            <div class="qc-card-desc">
+                {% if lastImport %}
+                    {{ 'Last upload: %date%'|trans({'%date%': lastImport.date_add|date('d.m.Y H:i')}) }}
+                {% else %}
+                    {{ 'Entered in the shop or uploaded by an outside tool.'|trans }}
+                {% endif %}
+            </div>
+        </div>
+        <div class="qc-hstack" style="gap:10px">
+            {# Szukanie po nazwie, kodzie i mieście: prowadzący sklep pamięta firmę
+               po jednej z tych trzech rzeczy, a nie po miejscu w tabeli. #}
+            <form method="get" action="{{ path('quince_gpsr_organizations') }}" class="qc-hstack" style="gap:6px">
+                <input class="qc-field-base qc-focusable" type="search" name="q" value="{{ phrase }}"
+                       style="width:220px" placeholder="{{ 'Name, code or city'|trans }}">
+                <button type="submit" class="qc-btn qc-btn-outline">{{ icons.icon('search', 14) }}</button>
+            </form>
+
+            <a href="{{ path('quince_gpsr_organization_new') }}" class="qc-btn qc-btn-outline">
+                {{ icons.icon('plus', 14) }} {{ 'Add company'|trans }}
+            </a>
+        </div>
+    </div>
+
+    <div class="qc-card-body">
+        {% if organizations is empty %}
+            <div class="qc-hint">
+                {% if phrase %}
+                    {{ 'No company matches “%phrase%”.'|trans({'%phrase%': phrase}) }}
+                {% else %}
+                    {{ 'No company yet. Add the manufacturer or importer here, then point products or brands at it.'|trans }}
+                {% endif %}
+            </div>
+        {% else %}
+            <table class="qc-table">
+                <thead>
+                    <tr>
+                        <th>{{ 'Company'|trans }}</th>
+                        <th>{{ 'Roles'|trans }}</th>
+                        <th>{{ 'Address'|trans }}</th>
+                        <th>{{ 'Electronic address'|trans }}</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for firma in organizations %}
+                        <tr>
+                            <td>
+                                {{ firma.trade_name ?: firma.code }}
+                                <div class="qc-hint">
+                                    {{ firma.code }}
+                                    {%- if firma.source == 'manual' %} · {{ 'entered in the shop'|trans }}{% endif %}
+                                    {%- if firma.retired %} · {{ 'retired'|trans }}{% endif %}
+                                </div>
+                            </td>
+                            <td>
+                                {% for rola in firma.roles %}
+                                    <span class="qc-badge">{{ roles[rola]|default(rola) }}</span>
+                                {% else %}
+                                    <span class="qc-badge qc-badge-warning">{{ 'No role'|trans }}</span>
+                                {% endfor %}
+                            </td>
+                            <td>
+                                {{ firma.street }}{{ firma.street and firma.postal_code ? ', ' : '' }}{{ firma.postal_code }} {{ firma.city }}{{ firma.country ? ', ' ~ firma.country : '' }}
+                            </td>
+                            <td>
+                                {% if firma.email or firma.contact_url %}
+                                    {{ firma.email ?: firma.contact_url }}
+                                {% else %}
+                                    <span class="qc-badge qc-badge-warning">{{ 'Missing'|trans }}</span>
+                                {% endif %}
+                            </td>
+                            <td>
+                                <a href="{{ path('quince_gpsr_organization_edit', {'code': firma.code}) }}" class="qc-btn qc-btn-text">
+                                    {{ icons.icon('edit', 14) }} {{ 'Edit'|trans }}
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            {# Stopka tabeli wychodzi dopiero wtedy, gdy lista nie mieści się
+               na jednej stronie: przy trzech firmach mówiłaby „strona 1 z 1". #}
+            {% if pages > 1 %}
+                <div class="qc-table-foot">
+                    <span>{{ 'Page %page% of %pages% · %total% companies'|trans({'%page%': page, '%pages%': pages, '%total%': total}) }}</span>
+
+                    <span class="qc-hstack" style="gap:8px">
+                        {% if page > 1 %}
+                            <a class="qc-btn qc-btn-text"
+                               href="{{ path('quince_gpsr_organizations', {'q': phrase, 'page': page - 1}) }}">{{ 'Back'|trans }}</a>
+                        {% endif %}
+                        {% if page < pages %}
+                            <a class="qc-btn qc-btn-text"
+                               href="{{ path('quince_gpsr_organizations', {'q': phrase, 'page': page + 1}) }}">{{ 'Next'|trans }}</a>
+                        {% endif %}
+                    </span>
+                </div>
+            {% endif %}
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

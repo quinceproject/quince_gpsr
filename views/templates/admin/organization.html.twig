@@ -1,0 +1,176 @@
+{# Jedna firma rejestru GPSR: dodanie albo poprawka. #}
+{% extends '@Modules/quince_gpsr/views/templates/admin/layout.html.twig' %}
+{% import '@Modules/quince_gpsr/views/templates/admin/_macros/icons.html.twig' as icons %}
+
+{% trans_default_domain 'Modules.Quincegpsr.Admin' %}
+
+{% set used = edited and (usage.products + usage.brands) > 0 %}
+
+{% block quince_intro %}
+    {# Przy firmie wskazywanej przez produkty liczba stoi na wierzchu, a nie
+       dopiero po kliknięciu „Delete": to ona decyduje, czy w ogóle zaczynać. #}
+    <div class="qc-alert {{ confirmDelete ? 'qc-alert-warning' : 'qc-alert-info' }}">
+        {{ icons.icon(confirmDelete ? 'alertCircle' : 'info', 18, 'qc-alert-icon') }}
+        <div>
+            {% if used %}
+                {{ 'Used by %products% products and %brands% brands. Every change here reaches their product pages.'|trans({'%products%': usage.products, '%brands%': usage.brands}) }}
+                {% if confirmDelete %}
+                    {{ 'Deleting takes the responsible operator off all of them. Retiring keeps the data where it already is.'|trans }}
+                {% endif %}
+            {% else %}
+                {{ 'These data reach the customer on the product page of every product that points to this company. GPSR requires the name, the postal address and an electronic address.'|trans }}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block quince_body %}
+<form method="post" action="{{ path('quince_gpsr_organization_save') }}" id="quince-gpsr-form">
+    <div class="qc-card">
+        <div class="qc-card-head">
+            <div>
+                <div class="qc-card-title">{{ edited ? edited.trade_name|default(edited.code) : 'New company'|trans }}</div>
+                <div class="qc-card-desc">
+                    {% if edited %}
+                        {{ 'Came from: %source%'|trans({'%source%': edited.source}) }}
+                    {% else %}
+                        {{ 'Manufacturer, importer, authorised representative or fulfilment service provider.'|trans }}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div class="qc-card-body">
+            <div class="qc-form-grid qc-form-grid-2">
+                <div class="qc-field">
+                    <label class="qc-label" for="code">{{ 'Code'|trans }}</label>
+                    <input class="qc-field-base qc-focusable" type="text" id="code" name="code"
+                           value="{{ edited.code|default('') }}" placeholder="example-tools-gmbh"
+                           {{ edited ? 'readonly' : '' }} required>
+                    <div class="qc-hint">
+                        {% if edited %}
+                            {{ 'The code stays with the company for good: uploads from outside find it by this value.'|trans }}
+                        {% else %}
+                            {{ 'Identifies the company when data is uploaded from outside. It never changes, even when the name or the address does.'|trans }}
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="qc-field">
+                    <label class="qc-label" for="trade_name">{{ 'Name or trade mark'|trans }}</label>
+                    <input class="qc-field-base qc-focusable" type="text" id="trade_name" name="trade_name"
+                           value="{{ edited.trade_name|default('') }}" required>
+                    <div class="qc-hint">{{ 'What the customer sees on the product page.'|trans }}</div>
+                </div>
+
+                <div class="qc-field">
+                    <label class="qc-label" for="legal_name">{{ 'Registered name'|trans }}</label>
+                    <input class="qc-field-base qc-focusable" type="text" id="legal_name" name="legal_name"
+                           value="{{ edited.legal_name|default('') }}">
+                    <div class="qc-hint">{{ 'Only when it differs from the name above.'|trans }}</div>
+                </div>
+
+                <div class="qc-field">
+                    <label class="qc-label" for="tax_id">{{ 'Tax number'|trans }}</label>
+                    <input class="qc-field-base qc-focusable" type="text" id="tax_id" name="tax_id"
+                           value="{{ edited.tax_id|default('') }}">
+                </div>
+
+                <div class="qc-field">
+                    <label class="qc-label" for="street">{{ 'Street and number'|trans }}</label>
+                    <input class="qc-field-base qc-focusable" type="text" id="street" name="street"
+                           value="{{ edited.street|default('') }}">
+                </div>
+
+                <div class="qc-field">
+                    <label class="qc-label" for="postal_code">{{ 'Postcode and city'|trans }}</label>
+                    <div class="qc-hstack" style="gap:8px;flex-wrap:nowrap">
+                        <input class="qc-field-base qc-focusable" type="text" style="width:110px"
+                               id="postal_code" name="postal_code" value="{{ edited.postal_code|default('') }}">
+                        <input class="qc-field-base qc-focusable" type="text" style="flex:1"
+                               name="city" value="{{ edited.city|default('') }}">
+                    </div>
+                </div>
+
+                <div class="qc-field">
+                    <label class="qc-label" for="country">{{ 'Country'|trans }}</label>
+                    <input class="qc-field-base qc-focusable" type="text" id="country" name="country"
+                           value="{{ edited.country|default('') }}" maxlength="2" placeholder="DE"
+                           style="width:90px;text-transform:uppercase">
+                    <div class="qc-hint">{{ 'Two letters, as in DE or PL. A manufacturer based in the EU is the responsible operator by itself.'|trans }}</div>
+                </div>
+
+                <div class="qc-field">
+                    <label class="qc-label" for="email">{{ 'Email'|trans }}</label>
+                    <input class="qc-field-base qc-focusable" type="email" id="email" name="email"
+                           value="{{ edited.email|default('') }}">
+                    <div class="qc-hint">{{ 'Required by GPSR. A contact form address below does the same job.'|trans }}</div>
+                </div>
+
+                <div class="qc-field">
+                    <label class="qc-label" for="contact_url">{{ 'Contact form address'|trans }}</label>
+                    <input class="qc-field-base qc-focusable" type="url" id="contact_url" name="contact_url"
+                           value="{{ edited.contact_url|default('') }}" placeholder="https://">
+                </div>
+
+                <div class="qc-field">
+                    <label class="qc-label" for="phone">{{ 'Phone'|trans }}</label>
+                    <input class="qc-field-base qc-focusable" type="text" id="phone" name="phone"
+                           value="{{ edited.phone|default('') }}">
+                </div>
+            </div>
+
+            <div class="qc-field" style="margin-top:14px">
+                <span class="qc-label">{{ 'Roles'|trans }}</span>
+                <div class="qc-hstack" style="gap:16px;flex-wrap:wrap">
+                    {% for kod, napis in roles %}
+                        <label class="qc-choice">
+                            <input type="checkbox" name="roles[]" value="{{ kod }}"
+                                   {{ kod in edited.roles|default([]) ? 'checked' : '' }}>
+                            <span>{{ napis }}</span>
+                        </label>
+                    {% endfor %}
+                </div>
+                <div class="qc-hint">
+                    {{ 'A distributor can never be the responsible operator: selling goods already placed on the EU market does not make anyone one.'|trans }}
+                </div>
+            </div>
+
+            {% if edited %}
+                <label class="qc-choice" style="margin-top:12px">
+                    <input type="checkbox" name="retired" value="1" {{ edited.retired ? 'checked' : '' }}>
+                    <span>{{ 'Retired, do not offer in new assignments'|trans }}</span>
+                </label>
+            {% endif %}
+        </div>
+    </div>
+</form>
+
+{% if edited %}
+    {# Potwierdzenie jedzie polem formularza, nie adresem: przypadkowe wejście
+       na adres z potwierdzeniem nie może kasować firmy. #}
+    <form id="quince-gpsr-delete" method="post" hidden
+          action="{{ path('quince_gpsr_organization_delete', {'code': edited.code}) }}">
+        {% if confirmDelete %}
+            <input type="hidden" name="confirm" value="1">
+        {% endif %}
+    </form>
+{% endif %}
+{% endblock %}
+
+{% block quince_actions_info %}
+    {{ 'Products and brands point to this company by its code.'|trans }}
+{% endblock %}
+
+{% block quince_actions %}
+    <a href="{{ path('quince_gpsr_organizations') }}" class="qc-btn qc-btn-outline">{{ 'Back to the list'|trans }}</a>
+    {% if edited %}
+        <button type="submit" form="quince-gpsr-delete" class="qc-btn qc-btn-outline">
+            {{ icons.icon('trash', 14) }}
+            {{ confirmDelete ? 'Delete anyway'|trans : 'Delete'|trans }}
+        </button>
+    {% endif %}
+    <button type="submit" form="quince-gpsr-form" class="qc-btn qc-btn-primary">
+        {{ icons.icon('check', 14) }} {{ 'Save'|trans }}
+    </button>
+{% endblock %}

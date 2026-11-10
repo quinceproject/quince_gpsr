@@ -1,0 +1,55 @@
+services:
+  _defaults:
+    public: true
+
+    # Te trzy linie są obowiązkowe w każdym module Quince.
+    #
+    # PrestaShop wyszukuje kontrolery modułów wyrażeniem regularnym po treści
+    # pliku i dopiero wtedy dokłada im tagi, dzięki którym Symfony podaje
+    # kontrolerowi jego lokalizator usług. Deklarujemy to sami, zamiast liczyć
+    # na wykrycie.
+    autoconfigure: true
+    autowire: true
+    tags: ['controller.service_arguments']
+
+  Quince\Gpsr\Storage\OrganizationRepository:
+    class: Quince\Gpsr\Storage\OrganizationRepository
+
+  Quince\Gpsr\Gpsr\Resolver:
+    class: Quince\Gpsr\Gpsr\Resolver
+    arguments:
+      - '@Quince\Gpsr\Storage\OrganizationRepository'
+
+  # Pole wyboru firmy w formularzu produktu i marki. Tag `form.type` jest
+  # konieczny: bez niego Symfony nie zna tej klasy jako typu formularza i pole
+  # dodatkowe wraca do zwykłego wejścia tekstowego.
+  Quince\Gpsr\Form\OrganizationChoiceType:
+    class: Quince\Gpsr\Form\OrganizationChoiceType
+    tags: ['form.type']
+
+  Quince\Gpsr\Controller\Admin\OrganizationsController:
+    class: Quince\Gpsr\Controller\Admin\OrganizationsController
+    arguments:
+      - '@Quince\Gpsr\Storage\OrganizationRepository'
+
+  # Zasoby Admin API rdzeń wczytuje sam z `src/ApiPlatform/Resources`, ale
+  # dostawcę i procesor trzeba zarejestrować jak każdą inną usługę: API Platform
+  # sięga po nie po nazwie klasy.
+  Quince\Gpsr\ApiPlatform\Provider\OrganizationProvider:
+    class: Quince\Gpsr\ApiPlatform\Provider\OrganizationProvider
+    arguments:
+      - '@Quince\Gpsr\Storage\OrganizationRepository'
+      - '@request_stack'
+    tags: ['api_platform.state_provider']
+
+  Quince\Gpsr\ApiPlatform\Processor\OrganizationProcessor:
+    class: Quince\Gpsr\ApiPlatform\Processor\OrganizationProcessor
+    arguments:
+      - '@Quince\Gpsr\Storage\OrganizationRepository'
+    tags: ['api_platform.state_processor']
+
+  Quince\Gpsr\ApiPlatform\Processor\OrganizationBatchProcessor:
+    class: Quince\Gpsr\ApiPlatform\Processor\OrganizationBatchProcessor
+    arguments:
+      - '@Quince\Gpsr\Storage\OrganizationRepository'
+    tags: ['api_platform.state_processor']

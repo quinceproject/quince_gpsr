@@ -1,0 +1,84 @@
+{#
+  Layout panelu Quince GPSR.
+
+  Własna kopia powłoki panelu Quince, nie rozszerzenie layoutu silnika: moduł ma
+  działać w sklepie bez `quince_engine`, a `{% extends %}` z cudzego katalogu
+  wywraca się przy jego braku, i to na każdej podstronie naraz.
+
+  Moduł ma jeden ekran, więc bocznego paska nawigacji tu nie ma. Gdyby ekranów
+  przybyło, wraca w tej samej postaci co w Quince CMP.
+
+  Językiem bazowym modułu jest angielski; napisy idą przez `trans` z domeną
+  Modules.Quincegpsr.Admin.
+#}
+{% extends '@PrestaShop/Admin/layout.html.twig' %}
+{% import '@Modules/quince_gpsr/views/templates/admin/_macros/icons.html.twig' as icons %}
+
+{% trans_default_domain 'Modules.Quincegpsr.Admin' %}
+
+{# Znacznik wersji przy każdym pliku. Bez niego przeglądarka trzyma poprzedni
+   arkusz i poprawki CSS nie docierają do panelu mimo poprawnego pliku na dysku. #}
+{% set qcVer = '?v=' ~ (app.debug ? 'now'|date('U') : qcVersion|default('0.1.0')) %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('../modules/quince_gpsr/views/css/tokens/base.css') ~ qcVer }}">
+    <link rel="stylesheet" href="{{ asset('../modules/quince_gpsr/views/css/tokens/colors.css') ~ qcVer }}">
+    <link rel="stylesheet" href="{{ asset('../modules/quince_gpsr/views/css/tokens/typography.css') ~ qcVer }}">
+    <link rel="stylesheet" href="{{ asset('../modules/quince_gpsr/views/css/tokens/spacing.css') ~ qcVer }}">
+    <link rel="stylesheet" href="{{ asset('../modules/quince_gpsr/views/css/tokens/components.css') ~ qcVer }}">
+    <link rel="stylesheet" href="{{ asset('../modules/quince_gpsr/views/css/panel.css') ~ qcVer }}">
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {# Przechwytuje komunikaty PrestaShopa i pokazuje je jako toast. Natywne alerty
+       wchodzą nad treść, przesuwają układ w dół i zostają do przeładowania. #}
+    <script src="{{ asset('../modules/quince_gpsr/views/js/panel.js') ~ qcVer }}" defer></script>
+{% endblock %}
+
+{% block content %}
+<div class="qc-root">
+    <div>
+        <div class="qc-content">
+            {# Tytuł strony rysuje PrestaShop (breadcrumb i nagłówek), więc go nie
+               powtarzamy. Zostaje krótka informacja, co da się na tym widoku zrobić. #}
+            {% block quince_intro %}{% endblock %}
+
+            {# Widoki jednego ekranu. Każda zakładka prowadzi do własnej trasy, więc
+               widok da się otworzyć wprost z adresu, a filtry i stronicowanie
+               mieszczą się w adresie zamiast w stanie skryptu.
+
+               Ta sama postać co w layoucie silnika: moduł ma wyglądać jak reszta
+               panelu, a nie wymyślać własnego przełącznika. #}
+            {% block quince_tabs %}
+                {% if quinceTabs|default([]) %}
+                    <nav class="qc-tabs">
+                        {% for tab in quinceTabs %}
+                            <a href="{{ path(tab.route) }}"
+                               class="qc-tab{{ quinceRoute|default('') == tab.route ? ' qc-active' : '' }}"
+                               {{ quinceRoute|default('') == tab.route ? 'aria-current="page"' : '' }}>{{ tab.label|trans }}</a>
+                        {% endfor %}
+                    </nav>
+                {% endif %}
+            {% endblock %}
+
+            {% block quince_body %}{% endblock %}
+
+            {# Pasek akcji wychodzi tylko wtedy, gdy ekran coś w nim postawił:
+               pusty, przyklejony do dna okna, wygląda na niedokończony formularz. #}
+            {% block quince_actionbar %}
+                {% set qcAkcje %}{% block quince_actions %}{% endblock %}{% endset %}
+                {% set qcAkcjeInfo %}{% block quince_actions_info %}{% endblock %}{% endset %}
+
+                {% if qcAkcje|trim is not empty or qcAkcjeInfo|trim is not empty %}
+                    <div class="qc-actionbar">
+                        <div class="qc-actionbar-info">{{ qcAkcjeInfo }}</div>
+                        {{ qcAkcje }}
+                    </div>
+                {% endif %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
+{% endblock %}

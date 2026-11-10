@@ -1,0 +1,90 @@
+/* Bezpieczeństwo produktu na karcie.
+
+   Moduł stoi obok motywu i musi wyglądać znośnie w każdym: dlatego każda
+   wartość bierze najpierw token Quince, a gdy go nie ma, wartość zapasową.
+   W sklepie na Quince sekcja dziedziczy odstępy, kreski i barwy motywu,
+   a w cudzym motywie nie rozjeżdża się na braku zmiennych.
+
+   Układ jest ten sam co w makiecie: ostrzeżenia jako treść, pod nimi tabela,
+   w której rola jest nagłówkiem wiersza. */
+
+.q-gpsr__safety {
+    margin-block-end: var(--q-space-lg, 24px);
+}
+
+.q-gpsr__safety :first-child {
+    margin-block-start: 0;
+}
+
+.q-gpsr__safety :last-child {
+    margin-block-end: 0;
+}
+
+/* Listy w tekście o bezpieczeństwie dostają znaczniki i wcięcie wprost.
+   Motywy powszechnie zerują `list-style` na poziomie strony, a ostrzeżenia
+   wpisane jako lista muszą wyglądać jak lista niezależnie od tego, w jakim
+   sklepie moduł stanie. */
+.q-gpsr__safety :is(ul, ol) {
+    margin-block: var(--q-space-sm, 8px);
+    padding-inline-start: var(--q-space-lg, 24px);
+}
+
+.q-gpsr__safety ul {
+    list-style: disc;
+}
+
+.q-gpsr__safety ol {
+    list-style: decimal;
+}
+
+.q-gpsr__safety li + li {
+    margin-block-start: 2px;
+}
+
+/* Tabela idzie przez całą szerokość sekcji: w komórce stoją nazwa, adres
+   i kontakt, czyli krótkie linie, więc granica długości wiersza z tabeli
+   specyfikacji zostawiłaby tu tylko pusty margines po prawej. */
+.q-gpsr__table {
+    inline-size: 100%;
+    max-inline-size: none;
+    border-collapse: collapse;
+    font-size: var(--q-fs-sm, 0.875rem);
+}
+
+.q-gpsr__table th,
+.q-gpsr__table td {
+    padding: var(--q-space-sm, 8px) var(--q-space-md, 16px);
+    border: 1px solid var(--q-table-border, rgba(0, 0, 0, .12));
+    text-align: start;
+    vertical-align: top;
+}
+
+.q-gpsr__table th {
+    inline-size: 40%;
+    background: none;
+    font-weight: var(--q-weight-semibold, 600);
+}
+
+/* Każda dana w osobnej linii: sklejone w akapit nie dają się przeczytać
+   wzrokiem, a tego adresu się szuka, a nie czyta od początku sekcji. */
+.q-gpsr__table td > span {
+    display: block;
+}
+
+.q-gpsr__name {
+    font-weight: var(--q-weight-semibold, 600);
+}
+
+/* Nazwa prawna i rola z rejestru: dopowiedzenie do nazwy, nie druga firma. */
+.q-gpsr__legal,
+.q-gpsr__meta {
+    color: var(--q-meta-color, #666);
+}
+
+.q-gpsr__address {
+    margin-block-start: var(--q-space-xs, 4px);
+}
+
+.q-gpsr__contact {
+    margin-block-start: var(--q-space-xs, 4px);
+}
