@@ -4,6 +4,14 @@ All notable changes to this module are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the versioning follows
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.1] - 2026-11-10
+
+### Added
+
+- Polish translation of every text the module shows, in the back office and in the
+  shop. This includes the fields on the product and brand pages, the role names and
+  the message about an unknown company code.
+
 ## [0.1.0] - 2026-11-10
 
 First public release.

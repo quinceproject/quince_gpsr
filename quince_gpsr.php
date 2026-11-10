@@ -75,7 +75,7 @@ class Quince_Gpsr extends Module
     {
         $this->name = 'quince_gpsr';
         $this->tab = 'administration';
-        $this->version = '0.1.0';
+        $this->version = '0.1.1';
         $this->author = 'Quince Project';
         $this->need_instance = 0;
         $this->ps_versions_compliancy = ['min' => '9.2.0', 'max' => '9.99.99'];
@@ -170,7 +170,7 @@ class Quince_Gpsr extends Module
 
         $hook = new Hook();
         $hook->name = self::HOOK_PRODUCT;
-        $hook->title = 'Quince — bezpieczeństwo produktu (GPSR)';
+        $hook->title = 'Quince: bezpieczeństwo produktu (GPSR)';
         $hook->description = 'Producent, podmiot odpowiedzialny i informacje o bezpieczeństwie na karcie produktu.';
         $hook->position = false;
 

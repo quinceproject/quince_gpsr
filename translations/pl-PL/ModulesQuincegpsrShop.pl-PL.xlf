@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en-US" target-language="pl-PL" datatype="plaintext" original="ModulesQuincegpsrShop">
+    <body>
+      <trans-unit id="quince.gpsr.shop.contact_form">
+        <source>Contact form</source>
+        <target>Formularz kontaktowy</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.shop.manufacturer_and_responsible">
+        <source>Manufacturer and responsible operator in the EU</source>
+        <target>Producent i podmiot odpowiedzialny w UE</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.shop.manufacturer">
+        <source>Manufacturer</source>
+        <target>Producent</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.shop.responsible">
+        <source>Responsible operator in the EU</source>
+        <target>Podmiot odpowiedzialny w UE</target>
+      </trans-unit>
+      <!-- Role z Gpsr/Roles.php: tłumaczone przez zmienną. -->
+      <trans-unit id="quince.gpsr.shop.role.importer">
+        <source>Importer</source>
+        <target>Importer</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.shop.role.authorised_representative">
+        <source>Authorised representative</source>
+        <target>Upoważniony przedstawiciel</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.shop.role.fulfilment_service_provider">
+        <source>Fulfilment service provider</source>
+        <target>Dostawca usług realizacji zamówień</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.shop.role.distributor">
+        <source>Distributor</source>
+        <target>Dystrybutor</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

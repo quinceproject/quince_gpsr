@@ -52,6 +52,9 @@ final class OrganizationChoiceType extends AbstractType
         $resolver->setDefaults([
             'responsible_only' => false,
             'placeholder' => 'Inherit from the brand',
+            // Podpowiedź tłumaczymy w domenie modułu; nazw firm z rejestru nie.
+            'translation_domain' => 'Modules.Quincegpsr.Admin',
+            'choice_translation_domain' => false,
             'required' => false,
             'choices' => [],
         ]);

@@ -43,8 +43,11 @@ final class OrganizationCodeValidator extends ConstraintValidator
         $firma = (new OrganizationRepository())->byCode($kod);
 
         if ($firma === null) {
+            // Domyślnie Symfony tłumaczy komunikat w domenie `validators`,
+            // a przekład leży w domenie modułu.
             $this->context->buildViolation($constraint->message)
                 ->setParameter('%code%', $kod)
+                ->setTranslationDomain('Modules.Quincegpsr.Admin')
                 ->addViolation();
 
             return;

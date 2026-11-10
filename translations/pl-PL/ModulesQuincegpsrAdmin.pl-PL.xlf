@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en-US" target-language="pl-PL" datatype="plaintext" original="ModulesQuincegpsrAdmin">
+    <body>
+      <trans-unit id="quince.gpsr.flash.code_and_name">
+        <source>A company needs at least a code and a name.</source>
+        <target>Firma musi mieć co najmniej kod i nazwę.</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.flash.no_electronic_address">
+        <source>Saved without an electronic address. GPSR requires an email or a contact form address for every company shown to customers.</source>
+        <target>Zapisano bez adresu elektronicznego. GPSR wymaga adresu e-mail albo adresu formularza kontaktowego dla każdej firmy pokazywanej klientom.</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.flash.saved">
+        <source>Saved.</source>
+        <target>Zapisano.</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.flash.save_failed">
+        <source>Could not save the company.</source>
+        <target>Nie udało się zapisać firmy.</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.flash.delete_used">
+        <source>This company is used by %products% products and %brands% brands. Deleting it takes the responsible operator off every one of those product pages. Retiring it instead keeps the data where it already is.</source>
+        <target>Tę firmę wskazują produkty (%products%) i marki (%brands%). Usunięcie jej zdejmie podmiot odpowiedzialny ze stron wszystkich tych produktów. Wycofanie zamiast usunięcia zostawia dane tam, gdzie już są.</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.flash.deleted">
+        <source>Company deleted.</source>
+        <target>Firma usunięta.</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.form.used_by">
+        <source>Used by %products% products and %brands% brands. Every change here reaches their product pages.</source>
+        <target>Tę firmę wskazują produkty (%products%) i marki (%brands%). Każda zmiana tutaj trafia na strony tych produktów.</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.form.delete_warning">
+        <source>Deleting takes the responsible operator off all of them. Retiring keeps the data where it already is.</source>
+        <target>Usunięcie zdejmie podmiot odpowiedzialny ze wszystkich tych stron. Wycofanie zostawia dane tam, gdzie już są.</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.form.intro">
+        <source>These data reach the customer on the product page of every product that points to this company. GPSR requires the name, the postal address and an electronic address.</source>
+        <target>Te dane trafiają do klienta na stronie każdego produktu, który wskazuje tę firmę. GPSR wymaga nazwy, adresu pocztowego i adresu elektronicznego.</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.form.new">
+        <source>New company</source>
+        <target>Nowa firma</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.form.source">
+        <source>Came from: %source%</source>
+        <target>Źródło: %source%</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.form.new_desc">
+        <source>Manufacturer, importer, authorised representative or fulfilment service provider.</source>
+        <target>Producent, importer, upoważniony przedstawiciel albo dostawca usług realizacji zamówień.</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.form.code">
+        <source>Code</source>
+        <target>Kod</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.form.code_hint_edit">
+        <source>The code stays with the company for good: uploads from outside find it by this value.</source>
+        <target>Kod zostaje przy firmie na stałe: dane wgrywane z zewnątrz odnajdują ją po tej wartości.</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.form.code_hint_new">
+        <source>Identifies the company when data is uploaded from outside. It never changes, even when the name or the address does.</source>
+        <target>Rozpoznaje firmę, gdy dane są wgrywane z zewnątrz. Nigdy się nie zmienia, nawet gdy zmienia się nazwa albo adres.</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.form.trade_name">
+        <source>Name or trade mark</source>
+        <target>Nazwa lub znak towarowy</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.form.trade_name_hint">
+        <source>What the customer sees on the product page.</source>
+        <target>To widzi klient na stronie produktu.</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.form.legal_name">
+        <source>Registered name</source>
+        <target>Nazwa rejestrowa</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.form.legal_name_hint">
+        <source>Only when it differs from the name above.</source>
+        <target>Tylko gdy różni się od nazwy powyżej.</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.form.tax_id">
+        <source>Tax number</source>
+        <target>Numer podatkowy</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.form.street">
+        <source>Street and number</source>
+        <target>Ulica i numer</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.form.postcode_city">
+        <source>Postcode and city</source>
+        <target>Kod pocztowy i miejscowość</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.form.country">
+        <source>Country</source>
+        <target>Kraj</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.form.country_hint">
+        <source>Two letters, as in DE or PL. A manufacturer based in the EU is the responsible operator by itself.</source>
+        <target>Dwie litery, np. DE albo PL. Producent z siedzibą w UE sam jest podmiotem odpowiedzialnym.</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.form.email">
+        <source>Email</source>
+        <target>E-mail</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.form.email_hint">
+        <source>Required by GPSR. A contact form address below does the same job.</source>
+        <target>Wymagany przez GPSR. Adres formularza kontaktowego poniżej spełnia to samo zadanie.</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.form.contact_url">
+        <source>Contact form address</source>
+        <target>Adres formularza kontaktowego</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.form.phone">
+        <source>Phone</source>
+        <target>Telefon</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.form.roles">
+        <source>Roles</source>
+        <target>Role</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.form.roles_hint">
+        <source>A distributor can never be the responsible operator: selling goods already placed on the EU market does not make anyone one.</source>
+        <target>Dystrybutor nigdy nie może być podmiotem odpowiedzialnym: sprzedaż towaru wprowadzonego już do obrotu w UE nikogo nim nie czyni.</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.form.retired">
+        <source>Retired, do not offer in new assignments</source>
+        <target>Wycofana, nie proponuj przy nowych przypisaniach</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.form.actions_info">
+        <source>Products and brands point to this company by its code.</source>
+        <target>Produkty i marki wskazują tę firmę po jej kodzie.</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.form.back_to_list">
+        <source>Back to the list</source>
+        <target>Wróć do listy</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.form.delete_anyway">
+        <source>Delete anyway</source>
+        <target>Usuń mimo to</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.form.delete">
+        <source>Delete</source>
+        <target>Usuń</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.form.save">
+        <source>Save</source>
+        <target>Zapisz</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.list.intro">
+        <source>Companies shown to customers under the General Product Safety Regulation: manufacturers, importers, authorised representatives. A product takes its company from its brand, unless it names its own.</source>
+        <target>Firmy pokazywane klientom zgodnie z rozporządzeniem w sprawie ogólnego bezpieczeństwa produktów: producenci, importerzy, upoważnieni przedstawiciele. Produkt bierze firmę od swojej marki, chyba że wskazuje własną.</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.list.title">
+        <source>Company register</source>
+        <target>Rejestr firm</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.list.last_upload">
+        <source>Last upload: %date%</source>
+        <target>Ostatnie wgranie: %date%</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.list.desc">
+        <source>Entered in the shop or uploaded by an outside tool.</source>
+        <target>Wpisane w sklepie albo wgrane przez zewnętrzne narzędzie.</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.list.search">
+        <source>Name, code or city</source>
+        <target>Nazwa, kod albo miejscowość</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.list.add">
+        <source>Add company</source>
+        <target>Dodaj firmę</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.list.no_match">
+        <source>No company matches “%phrase%”.</source>
+        <target>Żadna firma nie pasuje do „%phrase%”.</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.list.empty">
+        <source>No company yet. Add the manufacturer or importer here, then point products or brands at it.</source>
+        <target>Nie ma jeszcze żadnej firmy. Dodaj tu producenta albo importera, a potem wskaż go w produktach lub markach.</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.list.col.company">
+        <source>Company</source>
+        <target>Firma</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.list.col.address">
+        <source>Address</source>
+        <target>Adres</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.list.col.electronic">
+        <source>Electronic address</source>
+        <target>Adres elektroniczny</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.list.manual">
+        <source>entered in the shop</source>
+        <target>wpisana w sklepie</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.list.retired">
+        <source>retired</source>
+        <target>wycofana</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.list.no_role">
+        <source>No role</source>
+        <target>Brak roli</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.missing">
+        <source>Missing</source>
+        <target>Brak</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.list.edit">
+        <source>Edit</source>
+        <target>Edytuj</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.list.pages">
+        <source>Page %page% of %pages% · %total% companies</source>
+        <target>Strona %page% z %pages% · firm: %total%</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.pager.back">
+        <source>Back</source>
+        <target>Wstecz</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.pager.next">
+        <source>Next</source>
+        <target>Dalej</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.audit.no_operator">
+        <source>No company at all</source>
+        <target>Brak jakiejkolwiek firmy</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.audit.no_eu_operator">
+        <source>Manufacturer outside the EU and no responsible operator named</source>
+        <target>Producent spoza UE i brak wskazanego podmiotu odpowiedzialnego</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.audit.no_name">
+        <source>Company without a name</source>
+        <target>Firma bez nazwy</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.audit.no_address">
+        <source>Company without a full postal address</source>
+        <target>Firma bez pełnego adresu pocztowego</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.audit.no_contact">
+        <source>Company without an email or a contact form address</source>
+        <target>Firma bez adresu e-mail i bez adresu formularza kontaktowego</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.audit.selected_incomplete">
+        <source>%incomplete% of %checked% selected products cannot show everything the General Product Safety Regulation asks for.</source>
+        <target>Wybrane produkty, które nie mogą pokazać wszystkiego, czego wymaga rozporządzenie w sprawie ogólnego bezpieczeństwa produktów: %incomplete% z %checked%.</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.audit.selected_complete">
+        <source>All %checked% selected products show a responsible operator with a full address and an electronic address.</source>
+        <target>Wszystkie wybrane produkty (%checked%) pokazują podmiot odpowiedzialny z pełnym adresem i adresem elektronicznym.</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.audit.shop_incomplete">
+        <source>%incomplete% of %checked% products on sale in %shop% cannot show everything the General Product Safety Regulation asks for.</source>
+        <target>Produkty w sprzedaży w sklepie %shop%, które nie mogą pokazać wszystkiego, czego wymaga rozporządzenie w sprawie ogólnego bezpieczeństwa produktów: %incomplete% z %checked%.</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.audit.shop_complete">
+        <source>All %checked% products on sale in %shop% show a responsible operator with a full address and an electronic address.</source>
+        <target>Wszystkie produkty w sprzedaży w sklepie %shop% (%checked%) pokazują podmiot odpowiedzialny z pełnym adresem i adresem elektronicznym.</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.audit.inactive_note">
+        <source>Products switched off are left out: they are not on offer, so article 19 does not apply to them.</source>
+        <target>Wyłączone produkty są pominięte: nie są w ofercie, więc art. 19 ich nie dotyczy.</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.audit.title">
+        <source>Products without GPSR data</source>
+        <target>Produkty bez danych GPSR</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.audit.desc">
+        <source>A missing safety text is not counted here: warnings belong to products that have them.</source>
+        <target>Brak tekstu o bezpieczeństwie nie jest tu liczony: ostrzeżenia dotyczą tylko produktów, które je mają.</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.audit.any_category">
+        <source>Any category</source>
+        <target>Dowolna kategoria</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.audit.any_brand">
+        <source>Any brand</source>
+        <target>Dowolna marka</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.audit.search">
+        <source>Name or reference</source>
+        <target>Nazwa lub indeks</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.audit.clear">
+        <source>Clear</source>
+        <target>Wyczyść</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.audit.nothing">
+        <source>Nothing to fix here.</source>
+        <target>Nie ma tu nic do poprawienia.</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.audit.col.product">
+        <source>Product</source>
+        <target>Produkt</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.audit.col.manufacturer">
+        <source>Manufacturer</source>
+        <target>Producent</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.audit.col.responsible">
+        <source>Responsible operator</source>
+        <target>Podmiot odpowiedzialny</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.audit.col.missing">
+        <source>What is missing</source>
+        <target>Czego brakuje</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.audit.from_brand">
+        <source>set on the brand</source>
+        <target>ustawiony w marce</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.audit.from_product">
+        <source>set on the product</source>
+        <target>ustawiony w produkcie</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.audit.open_product">
+        <source>Open product</source>
+        <target>Otwórz produkt</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.audit.pages">
+        <source>Page %page% of %pages%</source>
+        <target>Strona %page% z %pages%</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.name">
+        <source>Quince GPSR</source>
+        <target>Quince GPSR</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.desc">
+        <source>Product safety and the responsible economic operator on the product page, as the EU General Product Safety Regulation requires. Companies live in one register; products and brands point to them.</source>
+        <target>Bezpieczeństwo produktu i podmiot gospodarczy odpowiedzialny na stronie produktu, zgodnie z wymogami unijnego rozporządzenia w sprawie ogólnego bezpieczeństwa produktów. Firmy są w jednym rejestrze, a produkty i marki je wskazują.</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.uninstall">
+        <source>Uninstalling deletes the company register, the safety texts and the assignments. Export them first if another tool does not hold them.</source>
+        <target>Odinstalowanie kasuje rejestr firm, teksty o bezpieczeństwie i przypisania. Najpierw je wyeksportuj, jeśli nie ma ich w innym narzędziu.</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.label">
+        <source>Product safety</source>
+        <target>Bezpieczeństwo produktów</target>
+      </trans-unit>
+      <!-- Role z Gpsr/Roles.php i zakładki z Ui/PanelNavigation.php: tłumaczone przez zmienną. -->
+      <trans-unit id="quince.gpsr.role.importer">
+        <source>Importer</source>
+        <target>Importer</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.role.authorised_representative">
+        <source>Authorised representative</source>
+        <target>Upoważniony przedstawiciel</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.role.fulfilment_service_provider">
+        <source>Fulfilment service provider</source>
+        <target>Dostawca usług realizacji zamówień</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.role.distributor">
+        <source>Distributor</source>
+        <target>Dystrybutor</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.nav.products">
+        <source>Products without data</source>
+        <target>Produkty bez danych</target>
+      </trans-unit>
+      <!-- Dodatkowe pola na karcie produktu i marki (quince_gpsr.php, Form/OrganizationChoiceType.php). -->
+      <trans-unit id="quince.gpsr.field.safety">
+        <source>Safety information</source>
+        <target>Informacje o bezpieczeństwie</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.field.safety_desc">
+        <source>Warnings and safety information shown to the customer before the purchase. Required by the General Product Safety Regulation.</source>
+        <target>Ostrzeżenia i informacje o bezpieczeństwie, które klient widzi przed zakupem. Wymaga ich rozporządzenie w sprawie ogólnego bezpieczeństwa produktów.</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.field.manufacturer_override">
+        <source>Manufacturer (override)</source>
+        <target>Producent (inny niż w marce)</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.field.manufacturer_override_desc">
+        <source>Code of a company from the GPSR register. Empty means the brand decides.</source>
+        <target>Kod firmy z rejestru GPSR. Puste pole oznacza, że decyduje marka.</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.field.responsible_override">
+        <source>Responsible operator (override)</source>
+        <target>Podmiot odpowiedzialny (inny niż w marce)</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.field.responsible_override_desc">
+        <source>Code of a company from the GPSR register. Empty means the brand decides, and a manufacturer based in the EU takes the role itself.</source>
+        <target>Kod firmy z rejestru GPSR. Puste pole oznacza, że decyduje marka, a producent z siedzibą w UE sam pełni tę rolę.</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.field.brand_manufacturer">
+        <source>Manufacturer for GPSR</source>
+        <target>Producent na potrzeby GPSR</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.field.brand_responsible">
+        <source>Responsible operator for GPSR</source>
+        <target>Podmiot odpowiedzialny na potrzeby GPSR</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.field.brand_desc">
+        <source>Code of a company from the GPSR register. Products of this brand inherit it.</source>
+        <target>Kod firmy z rejestru GPSR. Produkty tej marki przejmują go.</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.field.not_set">
+        <source>Not set</source>
+        <target>Nie ustawiono</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.field.inherit">
+        <source>Inherit from the brand</source>
+        <target>Jak w marce</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.field.code_unknown">
+        <source>Company "%code%" is not in the GPSR register.</source>
+        <target>Firmy „%code%” nie ma w rejestrze GPSR.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
