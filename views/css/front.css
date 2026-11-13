@@ -3,10 +3,7 @@
    Moduł stoi obok motywu i musi wyglądać znośnie w każdym: dlatego każda
    wartość bierze najpierw token Quince, a gdy go nie ma, wartość zapasową.
    W sklepie na Quince sekcja dziedziczy odstępy, kreski i barwy motywu,
-   a w cudzym motywie nie rozjeżdża się na braku zmiennych.
-
-   Układ jest ten sam co w makiecie: ostrzeżenia jako treść, pod nimi tabela,
-   w której rola jest nagłówkiem wiersza. */
+   a w cudzym motywie nie rozjeżdża się na braku zmiennych. */
 
 .q-gpsr__safety {
     margin-block-end: var(--q-space-lg, 24px);

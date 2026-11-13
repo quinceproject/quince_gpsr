@@ -23,7 +23,7 @@ use Quince\Gpsr\Storage\OrganizationRepository;
  *
  * Gdy podmiot odpowiedzialny nie jest wskazany nigdzie, wchodzi reguła z art. 16
  * ust. 1: producent z siedzibą w Unii jest nim sam z siebie. Producent spoza
- * Unii nie, i wtedy karta zostaje bez podmiotu — to jest brak do uzupełnienia,
+ * Unii nie, i wtedy karta zostaje bez podmiotu. To jest brak do uzupełnienia,
  * a nie stan do ukrycia.
  */
 final class Resolver

@@ -77,9 +77,6 @@ final class OrganizationsController extends PrestaShopAdminController
 
     /**
      * Przegląd braków: włączone produkty bez kompletu danych GPSR.
-     *
-     * Osobny widok, nie karta na liście firm: to jest lista robocza, po której
-     * się chodzi i poprawia, a nie podsumowanie do obejrzenia raz.
      */
     #[AdminSecurity("is_granted('read', request.get('_legacy_controller'))", message: 'You do not have permission to view this.')]
     public function productsAction(Request $request): Response
@@ -113,11 +110,7 @@ final class OrganizationsController extends PrestaShopAdminController
     }
 
     /**
-     * Jedna firma na osobnym widoku.
-     *
-     * Formularz pod listą zdawał egzamin przy trzech firmach. Przy stu lista
-     * spycha go poza ekran i dodanie firmy zaczyna się od przewijania całego
-     * rejestru, więc edycja ma własny adres.
+     * Jedna firma na osobnym widoku: dodanie albo edycja.
      */
     #[AdminSecurity("is_granted('read', request.get('_legacy_controller'))", message: 'You do not have permission to view this.')]
     public function editAction(Request $request, string $code = ''): Response

@@ -1,5 +1,5 @@
 {**
- * Quince GPSR — bezpieczeństwo produktu na karcie.
+ * Quince GPSR: bezpieczeństwo produktu na karcie.
  *
  * Trzy rzeczy, których wymaga art. 19 rozporządzenia 2023/988: informacja
  * o bezpieczeństwie w języku kupującego, producent oraz podmiot odpowiedzialny

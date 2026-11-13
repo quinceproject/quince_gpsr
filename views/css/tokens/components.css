@@ -33,8 +33,8 @@
 .qc-alert-close:hover{opacity:1}
 
 /* Card */
-/* Bez `overflow:hidden`. Karta obcinala kazdy popup, ktory z niej wystawal:
-   liste jezykow, wybor ikony, kolor. Zaokraglenie rogow zalatwia stopka,
+/* Bez `overflow:hidden`: obcinaloby kazdy popup, ktory wystaje z karty
+   (liste jezykow, wybor ikony, kolor). Zaokraglenie rogow zalatwia stopka,
    bo tylko ona ma wlasne tlo dochodzace do krawedzi. */
 .qc-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg)}
 .qc-card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:16px 18px;border-bottom:1px solid var(--border)}
@@ -159,8 +159,8 @@
 
 /* Wybór wielokrotny jako lista rozwijana z polami wyboru.
    Wyzwalacz wygląda jak zwykłe pole ze strzałką, menu i wiersze mają geometrię
-   listy języków — żeby to był ten sam panel, a nie nowy wynalazek. */
-/* Listy rozwijane muszą wyjść ponad pasek zapisu (z-index 20) — inaczej wybór
+   listy języków. */
+/* Listy rozwijane muszą wyjść ponad pasek zapisu (z-index 20). Inaczej wybór
    przy dolnej krawędzi ekranu chowa się pod nim. */
 .qc-multipick{position:relative}
 .qc-multipick-btn{display:flex;align-items:center;justify-content:space-between;gap:8px;text-align:left;cursor:pointer}

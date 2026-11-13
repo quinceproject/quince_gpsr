@@ -55,8 +55,7 @@ final class OrganizationCodeValidator extends ConstraintValidator
 
         // Wycofania tutaj nie sprawdzamy. Lista wyboru w panelu i tak nie poda
         // firmy wycofanej, a twarde odrzucenie zapisu blokowałoby zmianę ceny
-        // produktu, którego firma została w międzyczasie wycofana — kara za
-        // coś, czego edytujący nie zrobił.
+        // produktu, którego firma została w międzyczasie wycofana.
         if ($constraint->responsibleOnly && !Roles::canBeResponsible($firma['roles'])) {
             $this->context->buildViolation($constraint->roleMessage)
                 ->setParameter('%code%', $kod)

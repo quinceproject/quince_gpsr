@@ -18,10 +18,6 @@ namespace Quince\Gpsr\Gpsr;
  * podmiotem odpowiedzialnym sam z siebie (art. 16 ust. 1 GPSR), producent spoza
  * Unii wymaga wskazania kogoś innego.
  *
- * Lista jest krótka i zmienia się raz na dekadę, więc stoi w kodzie, a nie w
- * ustawieniach: pole do wpisania krajów Unii przez sklep byłoby pytaniem, na
- * które prowadzący sklep nie ma powodu odpowiadać.
- *
  * Norwegia, Islandia i Liechtenstein nie są w Unii, ale są w EOG. GPSR mówi o
  * wprowadzeniu do obrotu w Unii, więc ich tutaj nie ma. Wielka Brytania wypadła
  * z listy razem z brexitem i dlatego towar z Wysp wymaga dziś importera.

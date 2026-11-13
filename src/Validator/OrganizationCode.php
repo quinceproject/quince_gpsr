@@ -19,8 +19,8 @@ use Symfony\Component\Validator\Constraint;
  * Formularz w panelu pilnuje tego sam, bo podaje listę do wyboru. Zapis przez
  * Admin API listy nie ma i bez tego ograniczenia dałoby się przypisać produktowi
  * kod firmy, której w sklepie nie ma. Karta produktu nie wypisałaby wtedy nic,
- * a narzędzie wgrywające dostałoby odpowiedź, że zapis się udał — czyli cicha
- * utrata danych, najgorszy możliwy wariant przy obowiązku prawnym.
+ * a narzędzie wgrywające dostałoby odpowiedź, że zapis się udał. To cicha
+ * utrata danych przy obowiązku prawnym.
  *
  * `responsibleOnly` zawęża do ról, które wolno postawić w polu podmiotu
  * odpowiedzialnego. Dystrybutor nim nie bywa: sama sprzedaż towaru

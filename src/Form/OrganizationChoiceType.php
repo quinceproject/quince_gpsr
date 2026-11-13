@@ -33,7 +33,7 @@ final class OrganizationChoiceType extends AbstractType
      * Bez wstrzykiwania zależności i to celowo.
      *
      * Rdzeń sprawdza definicję pola dodatkowego budując próbne pole tym typem,
-     * a robi to w trakcie instalacji modułu — kiedy kontener usług jeszcze nic
+     * a robi to w trakcie instalacji modułu, kiedy kontener usług jeszcze nic
      * o tym module nie wie. Typ z argumentem w konstruktorze nie powstaje wtedy
      * wcale i rdzeń odrzuca całą definicję. Symfony potrafi zbudować typ spoza
      * kontenera, ale tylko wtedy, gdy da się go utworzyć bez argumentów.

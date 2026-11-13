@@ -26,7 +26,7 @@ use Quince\Gpsr\Storage\Schema;
 use Quince\Gpsr\Validator\OrganizationCode;
 
 /**
- * Quince GPSR — bezpieczeństwo produktu i podmiot odpowiedzialny.
+ * Quince GPSR: bezpieczeństwo produktu i podmiot odpowiedzialny.
  *
  * Rozporządzenie 2023/988 wymaga, żeby oferta sprzedaży na odległość pokazywała
  * przed zakupem: producenta, podmiot odpowiedzialny w Unii wraz z adresem
@@ -36,8 +36,8 @@ use Quince\Gpsr\Validator\OrganizationCode;
  * bez adresu elektronicznego i bez podmiotu odpowiedzialnego.
  *
  * Moduł trzyma rejestr firm u siebie, a przypisania i tekst o bezpieczeństwie
- * jako pola dodatkowe rdzenia — wtedy stoją w formularzu produktu obok opisu i
- * są zapisywalne zwykłym Admin API, bez własnego punktu odbioru.
+ * jako pola dodatkowe rdzenia. Dzięki temu stoją w formularzu produktu obok
+ * opisu i są zapisywalne zwykłym Admin API, bez własnego punktu odbioru.
  *
  * Wejście danych jest neutralne. Sklep przyjmuje je z dowolnego narzędzia:
  * PIM, arkusz, cudza integracja. Moduł nie zakłada żadnego konkretnego źródła.

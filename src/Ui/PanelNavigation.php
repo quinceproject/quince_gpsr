@@ -14,9 +14,8 @@ namespace Quince\Gpsr\Ui;
 /**
  * Zakładki modułu: rejestr firm i przegląd braków.
  *
- * Zakładki u góry, a nie pasek z boku: dwa widoki nie potrzebują własnej
- * kolumny, a każda zakładka prowadzi do osobnej trasy, więc widok otwiera się
- * wprost z adresu razem z filtrami i stroną.
+ * Każda zakładka prowadzi do osobnej trasy, więc widok otwiera się wprost
+ * z adresu razem z filtrami i stroną.
  */
 final class PanelNavigation
 {
