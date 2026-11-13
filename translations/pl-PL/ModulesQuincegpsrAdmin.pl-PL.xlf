@@ -404,10 +404,6 @@
         <source>Inherit from the brand</source>
         <target>Jak w marce</target>
       </trans-unit>
-      <trans-unit id="quince.gpsr.field.code_unknown">
-        <source>Company "%code%" is not in the GPSR register.</source>
-        <target>Firmy „%code%” nie ma w rejestrze GPSR.</target>
-      </trans-unit>
     </body>
   </file>
 </xliff>

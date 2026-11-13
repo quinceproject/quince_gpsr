@@ -4,6 +4,16 @@ All notable changes to this module are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the versioning follows
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.3] - 2026-11-13
+
+### Fixed
+
+- On PrestaShop 9.2.1 the manufacturer and responsible operator fields of products and
+  brands are created. PrestaShop 9.2.1 accepts only its own validation rules in extra
+  fields and refused the module's rule, so only the safety information field was
+  created. Shops installed with an earlier version get the missing fields when the
+  module is updated.
+
 ## [0.1.2] - 2026-11-13
 
 ### Fixed

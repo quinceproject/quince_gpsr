@@ -23,7 +23,7 @@ use Quince\Gpsr\Gpsr\Resolver;
 use Quince\Gpsr\Gpsr\Roles;
 use Quince\Gpsr\Storage\OrganizationRepository;
 use Quince\Gpsr\Storage\Schema;
-use Quince\Gpsr\Validator\OrganizationCode;
+use Symfony\Component\Validator\Constraints\Length;
 
 /**
  * Quince GPSR: bezpieczeństwo produktu i podmiot odpowiedzialny.
@@ -75,7 +75,7 @@ class Quince_Gpsr extends Module
     {
         $this->name = 'quince_gpsr';
         $this->tab = 'administration';
-        $this->version = '0.1.2';
+        $this->version = '0.1.3';
         $this->author = 'Quince Project';
         $this->need_instance = 0;
         $this->ps_versions_compliancy = ['min' => '9.2.0', 'max' => '9.99.99'];
@@ -215,7 +215,7 @@ class Quince_Gpsr extends Module
      * dlatego, że `ps_manufacturer_lang` nie ma kolumny `id_shop`, a rdzeniowy
      * zapis pola językowego wpisuje ją bezwarunkowo i kończy się błędem SQL.
      */
-    private function installFields(): bool
+    public function installFields(): bool
     {
         foreach ($this->fieldDefinitions() as $definicja) {
             if ($this->registerExtraProperty($definicja) === false) {
@@ -233,7 +233,16 @@ class Quince_Gpsr extends Module
         }
     }
 
-    /** @return ExtraPropertyDefinition[] */
+    /**
+     * Pola dodatkowe produktu i marki.
+     *
+     * W `constraints` tylko reguły z gramatyki rdzenia: PrestaShop 9.2.1 odrzuca
+     * definicję z własną klasą reguły i pole w ogóle nie powstaje. Kod firmy
+     * w panelu ogranicza lista wyboru (`OrganizationChoiceType`), a kod spoza
+     * rejestru wpisany przez API rozwiązanie pomija przy wyświetlaniu.
+     *
+     * @return ExtraPropertyDefinition[]
+     */
     private function fieldDefinitions(): array
     {
         return [
@@ -259,7 +268,7 @@ class Quince_Gpsr extends Module
                 associatedForms: ['product'],
                 associatedApis: ['/products', '/products/{productId}'],
                 formType: OrganizationChoiceType::class,
-                constraints: [new OrganizationCode()],
+                constraints: [new Length(max: 64)],
                 labelWording: 'Manufacturer (override)',
                 labelDomain: self::DOMAIN_ADMIN,
                 descriptionWording: 'Code of a company from the GPSR register. Empty means the brand decides.',
@@ -275,7 +284,7 @@ class Quince_Gpsr extends Module
                 associatedApis: ['/products', '/products/{productId}'],
                 formType: OrganizationChoiceType::class,
                 formOptions: ['responsible_only' => true],
-                constraints: [new OrganizationCode(['responsibleOnly' => true])],
+                constraints: [new Length(max: 64)],
                 labelWording: 'Responsible operator (override)',
                 labelDomain: self::DOMAIN_ADMIN,
                 descriptionWording: 'Code of a company from the GPSR register. Empty means the brand decides, and a manufacturer based in the EU takes the role itself.',
@@ -291,7 +300,7 @@ class Quince_Gpsr extends Module
                 associatedApis: ['/manufacturers', '/manufacturers/{manufacturerId}'],
                 formType: OrganizationChoiceType::class,
                 formOptions: ['placeholder' => 'Not set'],
-                constraints: [new OrganizationCode()],
+                constraints: [new Length(max: 64)],
                 labelWording: 'Manufacturer for GPSR',
                 labelDomain: self::DOMAIN_ADMIN,
                 descriptionWording: 'Code of a company from the GPSR register. Products of this brand inherit it.',
@@ -307,7 +316,7 @@ class Quince_Gpsr extends Module
                 associatedApis: ['/manufacturers', '/manufacturers/{manufacturerId}'],
                 formType: OrganizationChoiceType::class,
                 formOptions: ['responsible_only' => true, 'placeholder' => 'Not set'],
-                constraints: [new OrganizationCode(['responsibleOnly' => true])],
+                constraints: [new Length(max: 64)],
                 labelWording: 'Responsible operator for GPSR',
                 labelDomain: self::DOMAIN_ADMIN,
                 descriptionWording: 'Code of a company from the GPSR register. Products of this brand inherit it.',
