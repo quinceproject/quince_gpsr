@@ -71,6 +71,8 @@ final class OrganizationBatchProcessor implements ProcessorInterface
                 continue;
             }
 
+            // Zły `contactUrl` albo `email` nie odrzuca wiersza: repozytorium
+            // zapisuje wtedy puste pole, a reszta danych firmy wchodzi.
             if ($this->rejestr->save($wiersz, 'import') > 0) {
                 ++$data->saved;
 

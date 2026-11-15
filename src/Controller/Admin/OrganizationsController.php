@@ -141,6 +141,12 @@ final class OrganizationsController extends PrestaShopAdminController
     #[AdminSecurity("is_granted('update', request.get('_legacy_controller'))", message: 'You do not have permission to do this.')]
     public function saveAction(Request $request): RedirectResponse
     {
+        if (!$this->isCsrfTokenValid('quince_gpsr_save', $request->request->get('_csrf_token'))) {
+            $this->addFlash('error', $this->trans('Invalid security token, please try again.', [], 'Modules.Quincegpsr.Admin'));
+
+            return $this->redirectToRoute('quince_gpsr_organizations');
+        }
+
         $dane = [
             'code' => trim((string) $request->request->get('code', '')),
             'roles' => (array) $request->request->all('roles'),
@@ -155,6 +161,21 @@ final class OrganizationsController extends PrestaShopAdminController
             $this->addFlash('error', $this->trans('A company needs at least a code and a name.', [], 'Modules.Quincegpsr.Admin'));
 
             return $this->redirectToRoute('quince_gpsr_organizations');
+        }
+
+        // Repozytorium zapisze zły adres jako pusty; mówimy o tym od razu,
+        // żeby pole nie zniknęło po cichu.
+        $odrzucony = ($dane['contact_url'] !== '' && OrganizationRepository::cleanUrl($dane['contact_url']) === '')
+            || ($dane['email'] !== '' && OrganizationRepository::cleanEmail($dane['email']) === '');
+
+        if ($odrzucony) {
+            $dane['contact_url'] = OrganizationRepository::cleanUrl($dane['contact_url']);
+            $dane['email'] = OrganizationRepository::cleanEmail($dane['email']);
+            $this->addFlash('warning', $this->trans(
+                'An invalid email or contact form address was not saved. The contact form address must start with http:// or https://.',
+                [],
+                'Modules.Quincegpsr.Admin'
+            ));
         }
 
         // Adres elektroniczny jest wymogiem art. 19, nie naszym pomysłem: bez
@@ -189,6 +210,12 @@ final class OrganizationsController extends PrestaShopAdminController
     #[AdminSecurity("is_granted('delete', request.get('_legacy_controller'))", message: 'You do not have permission to do this.')]
     public function deleteAction(Request $request, string $code): RedirectResponse
     {
+        if (!$this->isCsrfTokenValid('quince_gpsr_delete', $request->request->get('_csrf_token'))) {
+            $this->addFlash('error', $this->trans('Invalid security token, please try again.', [], 'Modules.Quincegpsr.Admin'));
+
+            return $this->redirectToRoute('quince_gpsr_organizations');
+        }
+
         $uzycie = $this->rejestr->usageOf($code);
         $wskazan = $uzycie['products'] + $uzycie['brands'];
 

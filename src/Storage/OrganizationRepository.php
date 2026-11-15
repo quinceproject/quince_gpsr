@@ -14,6 +14,7 @@ namespace Quince\Gpsr\Storage;
 use Db;
 use DbQuery;
 use Quince\Gpsr\Gpsr\Roles;
+use Validate;
 
 /**
  * Rejestr firm: odczyt dla sklepu, zapis dla panelu i dla wgrywania z zewnątrz.
@@ -62,6 +63,15 @@ final class OrganizationRepository
         foreach (self::FIELDS as $pole) {
             if (array_key_exists($pole, $dane)) {
                 $wartosc = (string) $dane[$pole];
+
+                // Adres i e-mail trafiają na kartę produktu do `href`, więc
+                // sprawdzamy je tutaj: przez to repozytorium idzie i panel, i API.
+                if ($pole === 'contact_url') {
+                    $wartosc = self::cleanUrl($wartosc);
+                } elseif ($pole === 'email') {
+                    $wartosc = self::cleanEmail($wartosc);
+                }
+
                 $wiersz[$pole] = pSQL($pole === 'country' ? strtoupper(substr($wartosc, 0, 2)) : $wartosc);
             }
         }
@@ -81,6 +91,30 @@ final class OrganizationRepository
         return Db::getInstance()->insert(Schema::ORGANIZATION, $wiersz)
             ? (int) Db::getInstance()->Insert_ID()
             : 0;
+    }
+
+    /**
+     * Adres formularza kontaktowego albo pusty napis.
+     *
+     * Tylko pełny adres `http(s)://`: inny schemat (np. `javascript:`) w `href`
+     * na karcie produktu wykonałby się u klienta. Encje i znaki sterujące
+     * zdejmujemy przed sprawdzeniem, bo przeglądarka też je pomija.
+     */
+    public static function cleanUrl(string $url): string
+    {
+        $adres = html_entity_decode(trim($url), ENT_QUOTES | ENT_HTML5, 'UTF-8');
+        $adres = trim((string) preg_replace('/[\x00-\x1F\x7F]/u', '', $adres));
+
+        // Bez `FILTER_VALIDATE_URL`: odrzuca polskie znaki w domenie i ścieżce.
+        return preg_match('#^https?://[^\s/?\#]+[^\s]*$#iu', $adres) ? $adres : '';
+    }
+
+    /** E-mail albo pusty napis, gdy nie przejdzie sprawdzenia rdzenia. */
+    public static function cleanEmail(string $email): string
+    {
+        $adres = trim($email);
+
+        return $adres !== '' && Validate::isEmail($adres) ? $adres : '';
     }
 
     /** @return array<string,mixed>|null */

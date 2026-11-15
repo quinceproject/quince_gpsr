@@ -18,6 +18,14 @@
         <source>Could not save the company.</source>
         <target>Nie udało się zapisać firmy.</target>
       </trans-unit>
+      <trans-unit id="quince.gpsr.flash.invalid_token">
+        <source>Invalid security token, please try again.</source>
+        <target>Nieprawidłowy token bezpieczeństwa, spróbuj ponownie.</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.flash.invalid_address">
+        <source>An invalid email or contact form address was not saved. The contact form address must start with http:// or https://.</source>
+        <target>Nieprawidłowy adres e-mail albo adres formularza kontaktowego nie został zapisany. Adres formularza musi zaczynać się od http:// albo https://.</target>
+      </trans-unit>
       <trans-unit id="quince.gpsr.flash.delete_used">
         <source>This company is used by %products% products and %brands% brands. Deleting it takes the responsible operator off every one of those product pages. Retiring it instead keeps the data where it already is.</source>
         <target>Tę firmę wskazują produkty (%products%) i marki (%brands%). Usunięcie jej zdejmie podmiot odpowiedzialny ze stron wszystkich tych produktów. Wycofanie zamiast usunięcia zostawia dane tam, gdzie już są.</target>

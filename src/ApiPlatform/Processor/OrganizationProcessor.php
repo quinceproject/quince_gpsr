@@ -46,6 +46,16 @@ final class OrganizationProcessor implements ProcessorInterface
             throw new PrestaShopException('A company needs a code and a name.');
         }
 
+        // Przy pojedynczym zapisie mówimy o złym adresie wprost; repozytorium
+        // i tak by go wyczyściło, ale narzędzie zasilające nie wiedziałoby czemu.
+        if (trim($data->contactUrl) !== '' && OrganizationRepository::cleanUrl($data->contactUrl) === '') {
+            throw new PrestaShopException('contactUrl must be an absolute http:// or https:// address.');
+        }
+
+        if (trim($data->email) !== '' && OrganizationRepository::cleanEmail($data->email) === '') {
+            throw new PrestaShopException('email is not a valid email address.');
+        }
+
         $zapisane = $this->rejestr->save(Mapper::naWiersz($data), 'import');
 
         // Zero znaczy: wiersz wpisano w sklepie ręcznie i wgrywanie go nie rusza.

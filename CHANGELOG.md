@@ -4,6 +4,17 @@ All notable changes to this module are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the versioning follows
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.6] - 2026-11-15
+
+### Security
+
+- **The contact address of an organisation must be an `http(s)://` address** and the
+  e-mail a valid address, in the back office and through the Admin API. Before, a
+  `javascript:` address reached the product page and ran a script for a customer who
+  clicked "Contact form". An invalid value is not saved; the back office shows a
+  warning and a single API call returns an error.
+- Saving and deleting an organisation in the back office need a security token.
+
 ## [0.1.5] - 2026-11-15
 
 ### Fixed
