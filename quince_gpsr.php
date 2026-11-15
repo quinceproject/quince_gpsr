@@ -75,7 +75,7 @@ class Quince_Gpsr extends Module
     {
         $this->name = 'quince_gpsr';
         $this->tab = 'administration';
-        $this->version = '0.1.4';
+        $this->version = '0.1.5';
         $this->author = 'Quince Project';
         $this->need_instance = 0;
         $this->ps_versions_compliancy = ['min' => '9.2.0', 'max' => '9.99.99'];
@@ -113,8 +113,10 @@ class Quince_Gpsr extends Module
             && $this->registerHook($this->hooks(), $sklepy)
             && $this->installForShops($sklepy)
             && $this->installModuleGroups()
-            && $this->installFields()
-            && $this->installTabs();
+            // Zakładki przed polami: bez zakładki ekran ustawień daje 403, więc
+            // błąd przy polach nie może zostawić modułu bez niej.
+            && $this->installTabs()
+            && $this->installFields();
     }
 
     /**

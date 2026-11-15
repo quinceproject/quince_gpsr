@@ -4,6 +4,16 @@ All notable changes to this module are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the versioning follows
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.5] - 2026-11-15
+
+### Fixed
+
+- **Open settings** no longer answers "You do not have permission to view this" in
+  shops where the module was first installed on PrestaShop 9.2.1. That installation
+  stopped before it created the back office tabs, and PrestaShop checks access to the
+  settings screen against them. The update creates the missing tabs, and a new
+  installation creates them before the extra fields.
+
 ## [0.1.4] - 2026-11-13
 
 ### Fixed
