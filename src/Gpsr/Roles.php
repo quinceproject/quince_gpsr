@@ -11,6 +11,10 @@ declare(strict_types=1);
 
 namespace Quince\Gpsr\Gpsr;
 
+if (!defined('_PS_VERSION_')) {
+    exit;
+}
+
 /**
  * Role podmiotów z rozporządzenia 2023/988.
  *

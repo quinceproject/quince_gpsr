@@ -11,6 +11,10 @@ declare(strict_types=1);
 
 namespace Quince\Gpsr\Form;
 
+if (!defined('_PS_VERSION_')) {
+    exit;
+}
+
 use Quince\Gpsr\Storage\OrganizationRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;

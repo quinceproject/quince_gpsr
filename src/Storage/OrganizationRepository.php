@@ -11,6 +11,10 @@ declare(strict_types=1);
 
 namespace Quince\Gpsr\Storage;
 
+if (!defined('_PS_VERSION_')) {
+    exit;
+}
+
 use Db;
 use DbQuery;
 use Quince\Gpsr\Gpsr\Roles;

@@ -11,6 +11,10 @@ declare(strict_types=1);
 
 namespace Quince\Gpsr\Ui;
 
+if (!defined('_PS_VERSION_')) {
+    exit;
+}
+
 /**
  * Zakładki modułu: rejestr firm i przegląd braków.
  *
