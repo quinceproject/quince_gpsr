@@ -32,6 +32,10 @@ services:
     arguments:
       - '@Quince\Gpsr\Storage\OrganizationRepository'
 
+  # Support: wsparcie projektu i zgłoszenia do repozytorium modułu.
+  Quince\Gpsr\Controller\Admin\SupportController:
+    class: Quince\Gpsr\Controller\Admin\SupportController
+
   # Zasoby Admin API rdzeń wczytuje sam z `src/ApiPlatform/Resources`, ale
   # dostawcę i procesor trzeba zarejestrować jak każdą inną usługę: API Platform
   # sięga po nie po nazwie klasy.

@@ -412,6 +412,62 @@
         <source>Inherit from the brand</source>
         <target>Jak w marce</target>
       </trans-unit>
+      <trans-unit id="quince.gpsr.support.nav">
+        <source>Support</source>
+        <target>Wsparcie</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.support.kofi_title">
+        <source>Support Quince</source>
+        <target>Wesprzyj Quince</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.support.kofi_text">
+        <source>Quince modules are free. If they are useful to you, support their development on Ko-fi.</source>
+        <target>Moduły Quince są darmowe. Jeśli Ci się przydają, wesprzyj ich rozwój na Ko-fi.</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.support.kofi_button">
+        <source>Support on Ko-fi</source>
+        <target>Wesprzyj na Ko-fi</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.support.module_sub">
+        <source>You use %module% in your shop. Help us develop it.</source>
+        <target>Korzystasz z %module% w swoim sklepie. Pomóż nam go rozwijać.</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.support.module_text">
+        <source>Report a bug, describe what your shop is missing or share a remark on the module page on GitHub. %module% is part of Quince Project, a set of free modules for PrestaShop.</source>
+        <target>Zgłoś błąd, opisz, czego brakuje w Twoim sklepie, albo podziel się uwagą na stronie modułu na GitHubie. %module% należy do Quince Project, zestawu darmowych modułów do PrestaShop.</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.support.bug">
+        <source>Report a bug</source>
+        <target>Zgłoś błąd</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.support.bug_text">
+        <source>Say what happened and how to repeat it. Give the versions of PrestaShop and the module.</source>
+        <target>Napisz, co się stało i jak to powtórzyć. Podaj wersję PrestaShopa i modułu.</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.support.change">
+        <source>Suggest a change</source>
+        <target>Zaproponuj zmianę</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.support.change_text">
+        <source>Describe what you need and in what situation in your shop.</source>
+        <target>Opisz, czego potrzebujesz i w jakiej sytuacji w sklepie.</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.support.remark">
+        <source>Share a remark</source>
+        <target>Podziel się uwagą</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.support.remark_text">
+        <source>What is unclear in the panel or in the module description.</source>
+        <target>Co jest niejasne w panelu albo w opisie modułu.</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.support.report_github">
+        <source>Report on GitHub</source>
+        <target>Zgłoś na GitHubie</target>
+      </trans-unit>
+      <trans-unit id="quince.gpsr.support.project_site">
+        <source>Project website</source>
+        <target>Strona projektu</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

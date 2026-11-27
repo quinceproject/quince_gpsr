@@ -53,8 +53,8 @@
                     <nav class="qc-tabs">
                         {% for tab in quinceTabs %}
                             <a href="{{ path(tab.route) }}"
-                               class="qc-tab{{ quinceRoute|default('') == tab.route ? ' qc-active' : '' }}"
-                               {{ quinceRoute|default('') == tab.route ? 'aria-current="page"' : '' }}>{{ tab.label|trans }}</a>
+                               class="qc-tab{{ tab.icon is defined ? ' qc-tab--icon' }}{{ quinceRoute|default('') == tab.route ? ' qc-active' : '' }}"
+                               {{ quinceRoute|default('') == tab.route ? 'aria-current="page"' : '' }}>{% if tab.icon is defined %}{{ icons.icon(tab.icon, 16) }}{% endif %}{{ tab.label|trans }}</a>
                         {% endfor %}
                     </nav>
                 {% endif %}

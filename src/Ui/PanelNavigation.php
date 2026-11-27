@@ -24,13 +24,15 @@ if (!defined('_PS_VERSION_')) {
 final class PanelNavigation
 {
     /**
-     * @return array<int,array{label:string,route:string}>
+     * @return array<int,array{label:string,route:string,icon?:string}>
      */
     public function items(): array
     {
         return [
             ['label' => 'Company register', 'route' => 'quince_gpsr_organizations'],
             ['label' => 'Products without data', 'route' => 'quince_gpsr_products'],
+            // Ostatnia zakładka: wsparcie projektu i zgłoszenia.
+            ['label' => 'Support', 'route' => 'quince_gpsr_support', 'icon' => 'heart'],
         ];
     }
 }

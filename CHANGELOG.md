@@ -4,6 +4,14 @@ All notable changes to this module are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the versioning follows
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.8] - 2026-11-27
+
+### Added
+
+- **Support**: a new last tab. It links to the project on Ko-fi and to the project
+  website, and invites you to report bugs, suggestions and remarks in the module's
+  GitHub repository.
+
 ## [0.1.7] - 2026-11-16
 
 ### Changed

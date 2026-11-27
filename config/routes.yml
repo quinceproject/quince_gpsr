@@ -54,3 +54,12 @@ quince_gpsr_products:
     _controller: Quince\Gpsr\Controller\Admin\OrganizationsController::productsAction
     _legacy_controller: 'AdminQuinceGpsrOrganizations'
     _legacy_link: 'AdminQuinceGpsrOrganizations'
+
+# Wsparcie projektu i zgłoszenia do repozytorium modułu. Ostatnia zakładka.
+quince_gpsr_support:
+  path: quince/gpsr/support
+  methods: [GET]
+  defaults:
+    _controller: Quince\Gpsr\Controller\Admin\SupportController::indexAction
+    _legacy_controller: 'AdminQuinceGpsrOrganizations'
+    _legacy_link: 'AdminQuinceGpsrOrganizations'
